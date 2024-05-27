@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete User Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-success text-white d-flex justify-content-center align-items-center vh-100">
+
+<form th:action="@{/deleteUser/new}" method="post" class="bg-dark p-4 rounded shadow" style="max-width: 500px; width: 100%;">
+    <h1 class="text-center mb-4">DELETE USER</h1>
+    <div class="form-group">
+        <label for="email">Enter an email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <button type="submit" class="btn btn-danger btn-block" onclick="deleteBtn()">DELETE USER</button>
+    <a class="h5 d-block text-center mt-3 text-white" th:href="@{/admin_menu/back}">Previous page.</a>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function deleteBtn(){
+        window.location = "/admin_menu";
+    }
+</script>
+
+</body>
+</html>

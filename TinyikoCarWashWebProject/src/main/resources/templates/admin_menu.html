@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body style="background-color: green; color: white; font-family: Arial, sans-serif;">
+
+<div class="container-fluid text-center">
+    <h1>Admin Menu</h1>
+</div>
+<div class="container-fluid text-center" style="max-width: 500px; margin: 0 auto;background-color: cyan; padding: 20px; border-radius: 10px;">
+
+    <form th:action="@{/admin_menu/new}" method="get" th:object="${admin}">
+        <ul>
+            <li>Click <button type="submit" class="btn btn-primary m-1">Add User</button> to add an employee.</li>
+        </ul>
+    </form>
+    <form th:action="@{/updateUser/new}" method="get" th:object="${admin}">
+        <ul>
+            <li>Click <button type="submit" class="btn btn-primary m-1">Update User</button> to update an employee details.</li>
+        </ul>
+    </form>
+    <form th:action="@{/deleteUser/new}" method="get" th:object="${admin}">
+        <ul>
+            <li>Click <button type="submit" class="btn btn-primary m-1">Delete User</button> to delete an employee</li>
+        </ul>
+    </form>
+
+    <form th:action="@{/search}" method="post" th:object="${admin}">
+        <ul>
+            <h3>Search User By Email:</h3>
+            <input type="email" name="email" class="form-control" required/>
+            <button type="submit" class="btn btn-primary m-1">Search User</button>
+        </ul>
+    </form>
+
+    <form th:action="@{/list/employees}" method="post" th:object="${admin}">
+        <ul>
+            <h3>List All Employees:</h3>
+            <button type="submit" class="btn btn-primary m-1">List Employees</button>
+        </ul>
+    </form>
+    <a class="h5" th:href="@{/admin_menu/new}" style="color: white;">Previous page.</a>
+
+    <!-- Flash attribute block -->
+    <div th:if="${message}" class="alert alert-info" th:text="${message}">
+        Flash message here
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    function addUser(){
+        window.location = "/add_user";
+    }
+    function updateBtn(){
+        window.location = "/updateUser";
+    }
+    function deleteBtn(){
+        window.location = "/deleteUser";
+    }
+</script>
+
+</body>
+</html>
